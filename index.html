@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>麻雀 日別成績ビューア</title>
+  <link rel="stylesheet" href="style.css" />
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <main>
+    <!-- 更新状況（常に表示） -->
+    <div id="update-row">
+      <div id="update-label">更新状況(最終更新日時)</div>
+      <div id="update-status">────────</div>
+    </div>
+
+    <!-- 名前入力 行：名前 ＋ 検索ボタン -->
+    <div id="name-row">
+      <input id="name-input" type="text" placeholder="名前をいれてねっ" autocomplete="off" />
+      <button id="search-button">検索</button>
+    </div>
+
+    <!-- 日付操作 行：◀ 日付プルダウン ▶ -->
+    <div id="date-row">
+      <button id="prev-day" class="nav-btn" title="前日">◀︎</button>
+      <select id="date-select" aria-label="日付プルダウン"></select>
+      <button id="next-day" class="nav-btn" title="翌日">▶︎</button>
+    </div>
+
+    <!-- ローディング（初期非表示） -->
+    <div id="loading-area" aria-hidden="true">
+      <div id="loading-bar"><div id="loading-fill"></div></div>
+      <div id="loading-text">読み込みチュ…♡</div>
+    </div>
+
+    <!-- 結果表示 -->
+    <section id="results" style="display:none;">
+      <div id="info-container">
+        <div id="visitor-count"></div>
+        <div id="member-info"></div>
+      </div>
+
+      <div class="box15"><h3>日別ランキング</h3></div>
+      <div id="ranking-table" class="table"></div>
+      <div class="setumei">
+      <p1>※スタッフを含むランキング。</p1></div>
+
+      <div class="box16"><h3>日別成績</h3></div>
+      <div id="scoredata-table" class="table"></div>
+
+      <div class="box17"><h3>この日のスコアデータ</h3></div>
+      <div id="tenhan-container">
+        <div id="tenhan-list"></div>
+        <div class="chart-wrap"><canvas id="bar-chart"></canvas></div>
+      </div>
+
+      <div class="box18"><h3>この日の着順データ</h3></div>
+      <div id="rank-count-table" class="table"></div>
+      <div class="chart-wrap"><canvas id="pie-chart"></canvas></div>
+    </section>
+  </main>
+ <script src="app.js" defer></script>
+</body>
+</html>
